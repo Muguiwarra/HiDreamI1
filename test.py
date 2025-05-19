@@ -35,8 +35,10 @@ from diffusers import DiffusionPipeline, StableDiffusionPipeline
 from peft import PeftModel
 import torch
 
+from pipelines.pipeline_hidream_image import HiDreamImagePipeline
+
 # Load base model
-pipe = DiffusionPipeline.from_pretrained(
+pipe = HiDreamImagePipeline.from_pretrained(
     "HiDream-ai/HiDream-I1-Dev",
     torch_dtype=torch.bfloat16,
 ).to("cuda")

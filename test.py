@@ -38,8 +38,7 @@ import torch
 # Load base model
 pipe = DiffusionPipeline.from_pretrained(
     "models/hidream",
-    torch_dtype=torch.float16,
-    variant="fp16"
+    torch_dtype=torch.bfloat16,
 ).to("cuda")
 
 # Apply the LoRA weights manually — assumed to be in PEFT format

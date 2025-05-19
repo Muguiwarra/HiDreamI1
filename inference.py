@@ -65,7 +65,7 @@ def load_models(model_type):
         LLAMA_MODEL_NAME,
         output_hidden_states=True,
         output_attentions=True,
-        torch_dtype=torch.bfloat8,
+        torch_dtype=torch.bfloat16,
         # quantization_config=quant_config,
         # device_map="auto",
         ).to("cuda")
@@ -73,7 +73,7 @@ def load_models(model_type):
     transformer = HiDreamImageTransformer2DModel.from_pretrained(
         pretrained_model_name_or_path, 
         subfolder="transformer", 
-        torch_dtype=torch.bfloat8,
+        torch_dtype=torch.bfloat16,
         # quantization_config=quant_config,
         # device_map="auto",
         ).to("cuda")
@@ -83,10 +83,10 @@ def load_models(model_type):
         scheduler=scheduler,
         tokenizer_4=tokenizer_4,
         text_encoder_4=text_encoder_4,
-        torch_dtype=torch.bfloat8,
+        torch_dtype=torch.bfloat16,
         # quantization_config=quant_config,
         # device_map="auto",
-    ).to("cuda", torch.bfloat16)
+    ).to("cuda")
     pipe.transformer = transformer
     
     return pipe, config

@@ -65,17 +65,17 @@ def load_models(model_type):
         LLAMA_MODEL_NAME,
         output_hidden_states=True,
         output_attentions=True,
-        # torch_dtype=torch.bfloat16,
-        quantization_config=quant_config,
-        device_map="auto",
+        torch_dtype=torch.bfloat16,
+        # quantization_config=quant_config,
+        # device_map="auto",
         ).to("cuda")
 
     transformer = HiDreamImageTransformer2DModel.from_pretrained(
         pretrained_model_name_or_path, 
         subfolder="transformer", 
-        # torch_dtype=torch.bfloat16,
-        quantization_config=quant_config,
-        device_map="auto",
+        torch_dtype=torch.bfloat16,
+        # quantization_config=quant_config,
+        # device_map="auto",
         ).to("cuda")
 
     pipe = HiDreamImagePipeline.from_pretrained(
@@ -83,9 +83,9 @@ def load_models(model_type):
         scheduler=scheduler,
         tokenizer_4=tokenizer_4,
         text_encoder_4=text_encoder_4,
-        # torch_dtype=torch.bfloat16,
-        quantization_config=quant_config,
-        device_map="auto",
+        torch_dtype=torch.bfloat16,
+        # quantization_config=quant_config,
+        # device_map="auto",
     ).to("cuda", torch.bfloat16)
     pipe.transformer = transformer
     
@@ -145,6 +145,6 @@ print("Model loaded successfully!")
 prompt = "Coloring page for girls, with moderated elements: Sunny countryside farm with a small farmhouse," \
             "red barn, and a little girl (Lila) in a dress smiling at animals in the distance."
 resolution = "1024 × 1024 (Square)"
-seed = -1
+seed = 82706
 image, seed = generate_image(pipe, model_type, prompt, resolution, seed)
 image.save("output.png")

@@ -39,7 +39,7 @@ from hi_diffusers.pipelines.hidream_image.pipeline_hidream_image import HiDreamI
 
 # Load base model
 pipe = HiDreamImagePipeline.from_pretrained(
-    "HiDream-ai/HiDream-I1-Dev",
+    "models/hidream",
     torch_dtype=torch.bfloat16,
 ).to("cuda")
 

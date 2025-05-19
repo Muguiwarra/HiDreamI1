@@ -35,7 +35,7 @@ from diffusers import DiffusionPipeline, StableDiffusionPipeline
 from peft import PeftModel
 import torch
 
-from pipelines.pipeline_hidream_image import HiDreamImagePipeline
+from hi_diffusers.pipelines.pipeline_hidream_image import HiDreamImagePipeline
 
 # Load base model
 pipe = HiDreamImagePipeline.from_pretrained(

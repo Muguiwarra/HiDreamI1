@@ -66,7 +66,6 @@ def load_models(model_type):
         output_hidden_states=True,
         output_attentions=True,
         torch_dtype=torch.bfloat16,
-        load_in_8bit=True,
     # )
     ).to("cuda")
 
@@ -74,7 +73,6 @@ def load_models(model_type):
         pretrained_model_name_or_path, 
         subfolder="transformer", 
         torch_dtype=torch.bfloat16,
-        load_in_8bit=True,
     # )
     ).to("cuda")
 
@@ -84,7 +82,6 @@ def load_models(model_type):
         tokenizer_4=tokenizer_4,
         text_encoder_4=text_encoder_4,
         torch_dtype=torch.bfloat16,
-        load_in_8bit=True,
     # )
     ).to("cuda", torch.bfloat16)
     pipe.transformer = transformer

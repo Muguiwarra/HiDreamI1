@@ -68,7 +68,8 @@ def load_models(model_type):
         # torch_dtype=torch.bfloat16,
         quantization_config=quant_config,
         device_map="auto",
-        ).to("cuda")
+        )
+        # ).to("cuda")
 
     transformer = HiDreamImageTransformer2DModel.from_pretrained(
         pretrained_model_name_or_path, 
@@ -76,7 +77,8 @@ def load_models(model_type):
         # torch_dtype=torch.bfloat16,
         quantization_config=quant_config,
         device_map="auto",
-        ).to("cuda")
+        )
+        # ).to("cuda")
 
     pipe = HiDreamImagePipeline.from_pretrained(
         pretrained_model_name_or_path, 
@@ -86,7 +88,8 @@ def load_models(model_type):
         # torch_dtype=torch.bfloat16,
         quantization_config=quant_config,
         device_map="auto",
-    ).to("cuda", torch.bfloat16)
+    )
+    # ).to("cuda", torch.bfloat16)
     pipe.transformer = transformer
     
     return pipe, config

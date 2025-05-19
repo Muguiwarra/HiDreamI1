@@ -37,7 +37,7 @@ import torch
 
 # Load base model
 pipe = DiffusionPipeline.from_pretrained(
-    "models/hidream",
+    "HiDream-ai/HiDream-I1-Dev",
     torch_dtype=torch.bfloat16,
 ).to("cuda")
 

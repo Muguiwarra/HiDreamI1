@@ -40,6 +40,7 @@ from hi_diffusers.pipelines.hidream_image.pipeline_hidream_image import HiDreamI
 # Load base model
 pipe = HiDreamImagePipeline.from_pretrained(
     "models/hidream",
+	tokenizer="models/hidream/tokenizer",
     torch_dtype=torch.bfloat16,
 ).to("cuda")
 

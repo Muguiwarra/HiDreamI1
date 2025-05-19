@@ -66,8 +66,8 @@ def load_models(model_type):
         output_hidden_states=True,
         output_attentions=True,
         torch_dtype=torch.bfloat16,
-        quantization_config=quant_config,
-        device_map="auto",
+        # quantization_config=quant_config,
+        # device_map="auto",
     ).to("cuda")
 
     transformer = HiDreamImageTransformer2DModel.from_pretrained(

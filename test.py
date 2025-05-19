@@ -26,7 +26,7 @@
 from huggingface_hub import snapshot_download
 
 # Download base model
-snapshot_download(repo_id="HiDream-ai/HiDream-I1-Full", local_dir="models/hidream", local_dir_use_symlinks=False)
+# snapshot_download(repo_id="HiDream-ai/HiDream-I1-Full", local_dir="models/hidream", local_dir_use_symlinks=False)
 
 # Download LoRA
 snapshot_download(repo_id="renderartist/coloringbookhidream", local_dir="models/lora", local_dir_use_symlinks=False)

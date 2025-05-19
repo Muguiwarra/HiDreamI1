@@ -86,7 +86,7 @@ def load_models(model_type):
         torch_dtype=torch.bfloat16,
         # quantization_config=quant_config,
         # device_map="auto",
-    ).to("cuda")
+    ).to("cuda", torch.bfloat16)
     pipe.transformer = transformer
     
     return pipe, config

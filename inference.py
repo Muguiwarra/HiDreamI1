@@ -67,7 +67,6 @@ def load_models(model_type):
         output_attentions=True,
         # torch_dtype=torch.bfloat16,
         quantization_config=quant_config,
-        load_in_8bit_fp32_cpu_offload=True,
         device_map="auto",
     )
     # ).to("cuda")
